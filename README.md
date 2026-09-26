@@ -139,6 +139,8 @@ The plugin contains no credentials and no compiled code. It does three things:
 
 The skills tell Claude to treat transcripts, documents and knowledge base content as untrusted data.
 
+Moveo.AI handles the data in your account under its [Privacy Policy](https://moveo.ai/privacy-policy).
+
 To report a security problem, open a private security advisory on this repository.
 
 ## License
