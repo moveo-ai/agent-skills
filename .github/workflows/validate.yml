@@ -25,6 +25,8 @@ jobs:
           claude --version
       - name: Validate the marketplace and the plugin
         run: claude plugin validate . --strict
+      - name: Check manifest versions and names
+        run: ./scripts/check-versions.sh
       - name: Check public vocabulary
         run: ./scripts/check-vocabulary.sh
       - name: Test the confirmation hook

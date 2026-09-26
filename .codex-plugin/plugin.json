@@ -1,0 +1,32 @@
+{
+  "name": "moveo",
+  "version": "0.1.0",
+  "description": "Build, test and operate Moveo.AI agents: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo MCP server",
+  "author": {
+    "name": "Moveo.AI",
+    "url": "https://moveo.ai"
+  },
+  "homepage": "https://docs.moveo.ai",
+  "repository": "https://github.com/moveo-ai/claude-plugin",
+  "license": "MIT",
+  "keywords": ["moveo", "ai-agents", "conversational-ai", "mcp", "knowledge-base", "simulations"],
+  "skills": "./skills/",
+  "mcpServers": "./.codex-mcp.json",
+  "interface": {
+    "displayName": "Moveo.AI",
+    "shortDescription": "Build and test Moveo.AI agents",
+    "longDescription": "Create and change Moveo.AI conversational AI agents, ground them in knowledge bases, run simulations, and debug customer conversations through the hosted Moveo MCP server. Sign in with your Moveo.AI login.",
+    "developerName": "Moveo.AI",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://moveo.ai",
+    "privacyPolicyURL": "https://moveo.ai/privacy-policy",
+    "termsOfServiceURL": "https://moveo.ai/terms-of-use",
+    "defaultPrompt": [
+      "Which Moveo account am I connected to, and what can I do here?",
+      "Build a support agent from this brief and test it before publishing",
+      "Find out why this Moveo conversation went wrong"
+    ],
+    "brandColor": "#1B66D6"
+  }
+}

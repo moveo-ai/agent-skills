@@ -1,6 +1,6 @@
-# Moveo.AI plugin for Claude Code
+# Moveo.AI plugin for Claude Code and Codex
 
-Build, test and operate [Moveo.AI](https://moveo.ai) conversational AI agents from Claude Code. The plugin connects Claude Code to the hosted Moveo.AI MCP server and adds workflows for the tasks that take the most steps: building an agent, grounding it in a knowledge base, and testing it before it goes live.
+Build, test and operate [Moveo.AI](https://moveo.ai) conversational AI agents from Claude Code or OpenAI Codex. The plugin connects your coding agent to the hosted Moveo.AI MCP server and adds workflows for the tasks that take the most steps: building an agent, grounding it in a knowledge base, and testing it before it goes live.
 
 Ask things like:
 
@@ -16,7 +16,7 @@ Make the "Store support" agent answer from https://help.example.com and publish 
 Session 5b0e7c1a-9d2f-4c3e-8a61-2f4d7e9b1c30 went wrong yesterday. Find out why and fix it.
 ```
 
-## Install
+## Install in Claude Code
 
 You need Claude Code v2.1.275 or later and a Moveo.AI login.
 
@@ -39,6 +39,34 @@ You need Claude Code v2.1.275 or later and a Moveo.AI login.
 5. Ask Claude "what can I do with Moveo?" to confirm the connection.
 
 There is no API key to create or paste. Claude Code stores the sign-in token in your system keychain and refreshes it.
+
+## Install in Codex
+
+You need a Moveo.AI login.
+
+1. In your shell, run:
+
+   ```bash
+   codex plugin marketplace add moveo-ai/claude-plugin
+   codex plugin add moveo@moveo
+   ```
+
+2. Sign in with your Moveo.AI login in the browser:
+
+   ```bash
+   codex mcp login moveo
+   ```
+
+3. Start Codex and ask "what can I do with Moveo?" to confirm the connection.
+
+The Codex plugin connects to the main region, `mcp.moveo.ai`. If your account is on US Central or in Brazil, add the server of your region and sign in to it:
+
+```bash
+codex mcp add moveo-us --url https://mcp.us-central.moveo.ai/mcp
+codex mcp login moveo-us
+```
+
+For Brazil, use `https://mcp.sa-east.moveo.ai/mcp`. The confirmation hook and the region option are available only in Claude Code.
 
 ## What is inside
 
