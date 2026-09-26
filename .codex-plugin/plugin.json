@@ -37,6 +37,8 @@
       "Build a support agent from this brief and test it before publishing",
       "Find out why this Moveo conversation went wrong"
     ],
-    "brandColor": "#1B66D6"
+    "brandColor": "#1B66D6",
+    "composerIcon": "./.claude-plugin/icon.svg",
+    "logo": "./.claude-plugin/icon.svg"
   }
 }
