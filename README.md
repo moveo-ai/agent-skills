@@ -131,7 +131,13 @@ Commit messages follow Conventional Commits. release-please opens the release pu
 
 ## Security
 
-The plugin contains no credentials. It connects only to the Moveo.AI host of the region you choose, and it acts with the permissions of the Moveo.AI user who signs in. The skills tell Claude to treat transcripts, documents and knowledge base content as untrusted data.
+The plugin contains no credentials and no compiled code. It does three things:
+
+1. It connects Claude Code or Codex to the Moveo.AI MCP server of the region you choose (`mcp.moveo.ai`, `mcp.us-central.moveo.ai` or `mcp.sa-east.moveo.ai`) over HTTPS. The server acts with the permissions of the Moveo.AI user who signs in. The plugin sends data to no other destination.
+2. It adds four skills, which are Markdown instructions for Claude.
+3. In Claude Code, it runs `scripts/confirm-destructive.sh` before each Moveo.AI publish, rollback or delete tool call. The script reads the tool name from the hook input and asks you to approve the call. It makes no network calls and writes no files.
+
+The skills tell Claude to treat transcripts, documents and knowledge base content as untrusted data.
 
 To report a security problem, open a private security advisory on this repository.
 
