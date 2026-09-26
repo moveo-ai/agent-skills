@@ -7,7 +7,7 @@
     "url": "https://moveo.ai"
   },
   "homepage": "https://docs.moveo.ai",
-  "repository": "https://github.com/moveo-ai/claude-plugin",
+  "repository": "https://github.com/moveo-ai/agent-skills",
   "license": "MIT",
   "keywords": ["moveo", "ai-agents", "conversational-ai", "mcp", "knowledge-base", "simulations"],
   "skills": "./skills/",

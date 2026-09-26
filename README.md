@@ -23,13 +23,13 @@ You need Claude Code v2.1.275 or later and a Moveo.AI login.
 1. In Claude Code, run:
 
    ```text
-   /plugin install moveo --marketplace moveo-ai/claude-plugin
+   /plugin install moveo --marketplace moveo-ai/agent-skills
    ```
 
    On an older Claude Code, run the two steps separately:
 
    ```text
-   /plugin marketplace add moveo-ai/claude-plugin
+   /plugin marketplace add moveo-ai/agent-skills
    /plugin install moveo@moveo
    ```
 
@@ -47,7 +47,7 @@ You need a Moveo.AI login.
 1. In your shell, run:
 
    ```bash
-   codex plugin marketplace add moveo-ai/claude-plugin
+   codex plugin marketplace add moveo-ai/agent-skills
    codex plugin add moveo@moveo
    ```
 
