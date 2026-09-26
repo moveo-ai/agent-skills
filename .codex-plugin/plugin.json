@@ -1,6 +1,6 @@
 {
   "name": "moveo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Build, test and operate Moveo.AI agents: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo MCP server",
   "author": {
     "name": "Moveo.AI",
@@ -9,7 +9,14 @@
   "homepage": "https://docs.moveo.ai",
   "repository": "https://github.com/moveo-ai/agent-skills",
   "license": "MIT",
-  "keywords": ["moveo", "ai-agents", "conversational-ai", "mcp", "knowledge-base", "simulations"],
+  "keywords": [
+    "moveo",
+    "ai-agents",
+    "conversational-ai",
+    "mcp",
+    "knowledge-base",
+    "simulations"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.codex-mcp.json",
   "interface": {
@@ -18,7 +25,10 @@
     "longDescription": "Create and change Moveo.AI conversational AI agents, ground them in knowledge bases, run simulations, and debug customer conversations through the hosted Moveo MCP server. Sign in with your Moveo.AI login.",
     "developerName": "Moveo.AI",
     "category": "Productivity",
-    "capabilities": ["Interactive", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
     "websiteURL": "https://moveo.ai",
     "privacyPolicyURL": "https://moveo.ai/privacy-policy",
     "termsOfServiceURL": "https://moveo.ai/terms-of-use",
