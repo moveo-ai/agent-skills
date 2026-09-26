@@ -1,7 +1,7 @@
 {
   "name": "moveo",
   "displayName": "Moveo.AI",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Build, test and operate Moveo.AI agents from Claude Code: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo MCP server",
   "author": {
     "name": "Moveo.AI",
@@ -10,13 +10,24 @@
   "homepage": "https://docs.moveo.ai",
   "repository": "https://github.com/moveo-ai/claude-plugin",
   "license": "MIT",
-  "keywords": ["moveo", "ai-agents", "conversational-ai", "mcp", "knowledge-base", "simulations"],
+  "keywords": [
+    "moveo",
+    "ai-agents",
+    "conversational-ai",
+    "mcp",
+    "knowledge-base",
+    "simulations"
+  ],
   "userConfig": {
     "region_host": {
       "type": "string",
       "title": "Moveo.AI region",
       "description": "The region that hosts your Moveo.AI account. mcp.moveo.ai is the main region. Choose mcp.us-central.moveo.ai for US Central accounts and mcp.sa-east.moveo.ai for Brazil accounts.",
-      "options": ["mcp.moveo.ai", "mcp.us-central.moveo.ai", "mcp.sa-east.moveo.ai"],
+      "options": [
+        "mcp.moveo.ai",
+        "mcp.us-central.moveo.ai",
+        "mcp.sa-east.moveo.ai"
+      ],
       "default": "mcp.moveo.ai"
     },
     "confirm_destructive": {
