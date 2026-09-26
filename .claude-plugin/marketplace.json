@@ -1,0 +1,16 @@
+{
+  "name": "moveo",
+  "owner": {
+    "name": "Moveo.AI",
+    "url": "https://moveo.ai"
+  },
+  "description": "Build and operate Moveo.AI agents from Claude Code",
+  "plugins": [
+    {
+      "name": "moveo",
+      "source": "./",
+      "description": "Moveo.AI MCP tools plus workflows for building agents, knowledge bases and simulations",
+      "category": "productivity"
+    }
+  ]
+}

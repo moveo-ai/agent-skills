@@ -1,0 +1,29 @@
+name: probe-mcp
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [mcp.moveo.ai, mcp.us-central.moveo.ai, mcp.sa-east.moveo.ai]
+    steps:
+      - name: Probe ${{ matrix.host }}
+        env:
+          HOST: ${{ matrix.host }}
+        run: |
+          set -eu
+          code=$(curl -s -o /dev/null -w '%{http_code}' -m 20 -X POST "https://$HOST/mcp" -H 'content-type: application/json' -d '{}')
+          echo "POST /mcp -> $code"
+          test "$code" = 401
+          meta=$(curl -sf -m 20 "https://$HOST/.well-known/oauth-protected-resource/mcp")
+          echo "$meta"
+          echo "$meta" | grep -q '"authorization_servers"'
