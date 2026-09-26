@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: 24
       - name: Install Claude Code
-        run: npm install --global --ignore-scripts @anthropic-ai/claude-code@2.1.282
+        run: |
+          npm install --global --ignore-scripts @anthropic-ai/claude-code@2.1.282
+          node "$(npm root --global)/@anthropic-ai/claude-code/install.cjs"
+          claude --version
       - name: Validate the marketplace and the plugin
         run: claude plugin validate . --strict
       - name: Check public vocabulary
