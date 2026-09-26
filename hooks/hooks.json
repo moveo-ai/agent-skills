@@ -1,0 +1,18 @@
+{
+  "description": "Ask before a Moveo.AI publish, rollback or delete, even when the Moveo tools are allowed",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^mcp__.+__moveo_(publish|rollback|delete)_",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/confirm-destructive.sh"],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
