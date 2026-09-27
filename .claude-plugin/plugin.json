@@ -2,7 +2,7 @@
   "name": "moveo",
   "displayName": "Moveo.AI",
   "version": "0.1.1",
-  "description": "Build, test and operate Moveo.AI agents from Claude Code: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo MCP server",
+  "description": "Build, test and operate Moveo.AI agents from Claude Code: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo.AI MCP servers",
   "author": {
     "name": "Moveo.AI",
     "url": "https://moveo.ai"
@@ -18,19 +18,8 @@
     "knowledge-base",
     "simulations"
   ],
-  "userConfig": {
-    "region_host": {
-      "type": "string",
-      "title": "Moveo.AI region",
-      "description": "The region that hosts your Moveo.AI account: mcp.moveo.ai (main region), mcp.us-central.moveo.ai (US Central) or mcp.sa-east.moveo.ai (Brazil). Enter the host only, with no https:// and no path.",
-      "default": "mcp.moveo.ai"
-    },
-    "confirm_destructive": {
-      "type": "boolean",
-      "title": "Confirm publish, rollback and delete",
-      "description": "Ask before Claude publishes, rolls back or deletes anything in your Moveo.AI account, even if you allowed the Moveo tools.",
-      "default": true
-    }
-  },
-  "privacyPolicyUrl": "https://moveo.ai/privacy-policy"
+  "privacyPolicyUrl": "https://moveo.ai/privacy-policy",
+  "supportUrl": "https://moveo.ai/support",
+  "documentationUrl": "https://docs.moveo.ai",
+  "termsOfServiceUrl": "https://moveo.ai/terms-of-use"
 }

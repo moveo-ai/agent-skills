@@ -29,5 +29,3 @@ jobs:
         run: ./scripts/check-versions.sh
       - name: Check public vocabulary
         run: ./scripts/check-vocabulary.sh
-      - name: Test the confirmation hook
-        run: ./scripts/test-hook.sh

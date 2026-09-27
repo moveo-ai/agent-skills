@@ -2,7 +2,15 @@
   "mcpServers": {
     "moveo": {
       "type": "http",
-      "url": "https://${user_config.region_host}/mcp"
+      "url": "https://mcp.moveo.ai/mcp"
+    },
+    "moveo-us": {
+      "type": "http",
+      "url": "https://mcp.us-central.moveo.ai/mcp"
+    },
+    "moveo-br": {
+      "type": "http",
+      "url": "https://mcp.sa-east.moveo.ai/mcp"
     }
   }
 }
