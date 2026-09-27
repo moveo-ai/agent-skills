@@ -4,7 +4,7 @@ set -eu
 
 cd "$(dirname "$0")/.."
 
-pattern='\b(desks?|brains?|collections?)\b|Môveo'
+pattern='\b(desks?|brains?|collection_id|assign_collection)\b|Môveo'
 files="skills README.md .claude-plugin .codex-plugin .agents"
 
 if grep -rniE "$pattern" $files; then

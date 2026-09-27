@@ -1,6 +1,6 @@
 ---
 name: build-agent
-description: Builds or changes a Moveo.AI conversational AI agent. Use when the user wants to create an agent from a brief or to write or fix its guidelines, tone or escalation rules. Also use to add intents and workflows, or to train, publish or roll back an agent. Requests such as "make the bot handle refunds" or "hand refunds over to a human" on a Moveo agent also qualify.
+description: Builds or changes a Moveo.AI conversational AI agent. Use when the user wants to create an agent from a brief or to write or fix its guidelines, tone or escalation rules. Also use to add intents and workflows, or to train, publish or roll back an agent. Requests such as "make the bot handle refunds" or "hand refunds over to a human" on a Moveo agent also qualify. Also matches Portuguese or Greek requests, such as "criar um agente" or "φτιάξε έναν agent".
 ---
 
 # Build a Moveo.AI agent
@@ -29,7 +29,7 @@ The `build_agent_from_brief` server prompt runs steps 1 to 8 in one pass. If the
 
 ## Change an existing agent
 
-1. Find the agent in `moveo://snapshots/agents`. If the name is ambiguous, ask.
+1. Find the agent in the agents snapshot (see `get-started` for its uri). If the name is ambiguous, ask.
 2. Read before you write: `moveo_get_agent_guidelines` for the playbook, `moveo_list_agent_workflows` for the flows.
 3. Make the smallest edit that does the job. `moveo_update_agent_guidelines` deep-merges, so send only the fields you change.
 4. Show the user what changed with `moveo_diff_agent_versions` from the latest published version to `0`.
@@ -38,7 +38,7 @@ The `build_agent_from_brief` server prompt runs steps 1 to 8 in one pass. If the
 
 1. Poll `moveo_get_agent` until `status` is `available`.
 2. Show the diff from the latest published version to `0` and get the user's approval.
-3. Call `moveo_publish_agent` once. It takes about 10 seconds and up to 30. Wait for it. Do not call it again.
+3. Call `moveo_publish_agent` once, and wait for it to return. Do not call it again while it runs.
 4. If the new version ends in `status: 'failed'`, fix the content, wait for training, and publish again. If the user wants the previous behavior back, offer `moveo_rollback_agent_to_version`.
 
 ## Failure modes
@@ -48,6 +48,11 @@ The `build_agent_from_brief` server prompt runs steps 1 to 8 in one pass. If the
 - An edit to a published version fails. Edit the draft, then publish.
 - Rollback overwrites the current draft. Diff first. If the draft holds unpublished work, warn the user.
 - `moveo_clone_agent` works only on an agent that was never published.
-- Deleting an intent leaves dialog nodes that point at a slug that no longer exists. Call `moveo_get_dialog_references` first.
+- Deleting an intent leaves dialog nodes that point at a slug that no longer exists. Call `moveo_get_dialog_references` first, then name what will break and wait for the user's yes.
 - If guidelines repeat the knowledge base, answers go stale after documents change. Put facts in the knowledge base and behavior in the guidelines.
 - An agent answers from a knowledge base only with two settings: the knowledge base is attached, and the `search_knowledge_base` tool is enabled. Use the `knowledge-base` skill for that.
+
+## Rules for every Moveo task
+
+- Reply in the user's language. Keep tool arguments, resource names and the product terms environment, agent and knowledge base as the tools expect them.
+- Before each publish, rollback or delete, name the account, the resource and what will change, then wait for an explicit yes. This holds even when the user asked for the change in the same message, because a request can name the wrong account or resource.

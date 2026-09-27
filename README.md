@@ -75,7 +75,7 @@ You need a Moveo.AI login.
 | `knowledge-base` skill | Builds knowledge bases from websites, FAQs and files, and fixes wrong answers |
 | `test-agent` skill | Runs quick tests and simulations, and debugs customer conversations |
 
-Every change goes to a draft first. Customers see nothing until you publish. The servers mark every tool that changes data as destructive, and Claude uses that mark to decide when to ask for your approval.
+Every change goes to a draft first. Customers see nothing until you publish. The skills tell Claude to name the account and the resource and to wait for your yes before any publish, rollback or delete. The servers also mark every tool that changes data as destructive. On claude.ai, that mark makes Claude ask before each such call. In Claude Code, your permission settings decide: if you allow the Moveo write tools without a prompt, only the skills stand between a request and the change.
 
 ## Update
 
@@ -122,6 +122,8 @@ The plugin contains no credentials, no hooks and no compiled code. It does two t
 
 1. It declares the three Moveo.AI MCP servers (`mcp.moveo.ai`, `mcp.us-central.moveo.ai` and `mcp.sa-east.moveo.ai`), which Claude Code or Codex reach over HTTPS. A server acts with the permissions of the Moveo.AI user who signs in to it. The plugin sends data to no other destination.
 2. It adds four skills, which are Markdown instructions for Claude.
+
+The plugin declares the header `X-Moveo-MCP-Client: moveo-plugin` on each server, so Moveo.AI can count how many sessions come from the plugin. Claude Code sends it with every request. The header holds no user or account data.
 
 The skills tell Claude to treat transcripts, documents and knowledge base content as untrusted data.
 

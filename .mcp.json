@@ -2,15 +2,24 @@
   "mcpServers": {
     "moveo": {
       "type": "http",
-      "url": "https://mcp.moveo.ai/mcp"
+      "url": "https://mcp.moveo.ai/mcp",
+      "headers": {
+        "X-Moveo-MCP-Client": "moveo-plugin"
+      }
     },
     "moveo-us": {
       "type": "http",
-      "url": "https://mcp.us-central.moveo.ai/mcp"
+      "url": "https://mcp.us-central.moveo.ai/mcp",
+      "headers": {
+        "X-Moveo-MCP-Client": "moveo-plugin"
+      }
     },
     "moveo-br": {
       "type": "http",
-      "url": "https://mcp.sa-east.moveo.ai/mcp"
+      "url": "https://mcp.sa-east.moveo.ai/mcp",
+      "headers": {
+        "X-Moveo-MCP-Client": "moveo-plugin"
+      }
     }
   }
 }
