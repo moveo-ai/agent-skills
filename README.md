@@ -123,6 +123,8 @@ The plugin contains no credentials, no hooks and no compiled code. It does two t
 1. It declares the three Moveo.AI MCP servers (`mcp.moveo.ai`, `mcp.us-central.moveo.ai` and `mcp.sa-east.moveo.ai`), which Claude Code or Codex reach over HTTPS. A server acts with the permissions of the Moveo.AI user who signs in to it. The plugin sends data to no other destination.
 2. It adds four skills, which are Markdown instructions for Claude.
 
+The plugin declares the header `X-Moveo-MCP-Client: moveo-plugin` on each server, so Moveo.AI can count how many sessions come from the plugin. Claude Code sends it with every request. The header holds no user or account data.
+
 The skills tell Claude to treat transcripts, documents and knowledge base content as untrusted data.
 
 Moveo.AI handles the data in your account under its [Privacy Policy](https://moveo.ai/privacy-policy).
