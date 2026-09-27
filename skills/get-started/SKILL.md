@@ -7,15 +7,23 @@ description: Connects Claude to a Moveo.AI account and routes the user to the ri
 
 Moveo.AI is a platform for conversational AI agents: agents answer customers over chat, voice and email, grounded in knowledge bases, routed by rules on an environment.
 
-The `moveo` MCP server in this plugin exposes the whole platform. Its tools are named `moveo_<verb>_<noun>`. Claude Code shows them as `mcp__plugin_moveo_moveo__moveo_<verb>_<noun>`. If the user added a Moveo server by hand before, Claude Code uses that server instead, and the prefix is the name of that server, for example `mcp__moveo__`.
+This plugin connects to Moveo.AI through three MCP servers, one for each region. An account lives in exactly one region, and the user signs in only to that region's server:
+
+| Server | Region | Host |
+|---|---|---|
+| `moveo` | Europe | `mcp.moveo.ai` |
+| `moveo-us` | US Central | `mcp.us-central.moveo.ai` |
+| `moveo-br` | Brazil | `mcp.sa-east.moveo.ai` |
+
+The tools are named `moveo_<verb>_<noun>` on every server. Claude Code shows them with a prefix for the server, such as `mcp__plugin_moveo_moveo__` or `mcp__plugin_moveo_moveo-us__`. Use the tools of the server the user signed in to. The two other servers stay unauthenticated, which is normal. If the user added a Moveo server by hand before, Claude Code uses that server instead, and the prefix is its name, for example `mcp__moveo__`.
 
 ## 1. Confirm the connection
 
-Call `moveo_whoami`.
+Call `moveo_whoami` on the server the user signed in to.
 
 - It returns an account: go to step 2.
-- The server is missing, or the call fails with 401 or "needs authentication": the user has not signed in. In Claude Code, tell them to run `/mcp`, select `plugin:moveo:moveo`, and sign in in the browser with their Moveo.AI login. In Codex, tell them to run `codex mcp login moveo`. Wait for them, then call `moveo_whoami` again.
-- Sign-in succeeds but the account list is empty or wrong: the region is probably wrong. Moveo.AI runs three separate regions and an account lives in exactly one. Tell the user to open `/plugin`, select the moveo plugin, and change the region option. The value is one of `mcp.moveo.ai`, `mcp.us-central.moveo.ai` for US Central, or `mcp.sa-east.moveo.ai` for Brazil, typed as the host only. Then the user runs `/reload-plugins` and signs in again. Codex has no region option. In Codex, a US Central or Brazil user adds a server for their region with `codex mcp add moveo-us --url https://mcp.us-central.moveo.ai/mcp` or `codex mcp add moveo-br --url https://mcp.sa-east.moveo.ai/mcp`, then runs `codex mcp login` with that name.
+- No Moveo server is signed in, or the call fails with 401 or "needs authentication": the user has not signed in yet. If you do not know which region hosts their account, ask. In Claude Code, tell them to run `/mcp`, select `plugin:moveo:moveo`, `plugin:moveo:moveo-us` or `plugin:moveo:moveo-br`, and sign in in the browser with their Moveo.AI login. In Codex, tell them to run `codex mcp login moveo`, `codex mcp login moveo-us` or `codex mcp login moveo-br`. Wait for them, then call `moveo_whoami` again.
+- Sign-in succeeds but the account list is empty or wrong: the user signed in to the wrong region. Tell them to sign in to the server of the region that hosts their account.
 
 ## 2. Confirm the account
 

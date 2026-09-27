@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "moveo": {
-      "type": "http",
-      "url": "https://mcp.moveo.ai/mcp"
-    }
-  }
-}
