@@ -51,3 +51,8 @@ The `build_agent_from_brief` server prompt runs steps 1 to 8 in one pass. If the
 - Deleting an intent leaves dialog nodes that point at a slug that no longer exists. Call `moveo_get_dialog_references` first, then name what will break and wait for the user's yes.
 - If guidelines repeat the knowledge base, answers go stale after documents change. Put facts in the knowledge base and behavior in the guidelines.
 - An agent answers from a knowledge base only with two settings: the knowledge base is attached, and the `search_knowledge_base` tool is enabled. Use the `knowledge-base` skill for that.
+
+## Rules for every Moveo task
+
+- Reply in the user's language. Keep tool arguments, resource names and the product terms environment, agent and knowledge base as the tools expect them.
+- Before each publish, rollback or delete, name the account, the resource and what will change, then wait for an explicit yes. This holds even when the user asked for the change in the same message, because a request can name the wrong account or resource.
