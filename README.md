@@ -143,6 +143,10 @@ Moveo.AI handles the data in your account under its [Privacy Policy](https://mov
 
 To report a security problem, open a private security advisory on this repository.
 
+## Support
+
+For help with the plugin or your Moveo.AI account, contact [Moveo.AI support](https://moveo.ai/support).
+
 ## License
 
 [MIT](LICENSE)

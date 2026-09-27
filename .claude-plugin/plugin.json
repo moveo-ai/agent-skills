@@ -32,5 +32,8 @@
       "default": true
     }
   },
-  "privacyPolicyUrl": "https://moveo.ai/privacy-policy"
+  "privacyPolicyUrl": "https://moveo.ai/privacy-policy",
+  "supportUrl": "https://moveo.ai/support",
+  "documentationUrl": "https://github.com/moveo-ai/agent-skills#readme",
+  "termsOfServiceUrl": "https://moveo.ai/terms-of-use"
 }
