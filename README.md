@@ -75,7 +75,7 @@ You need a Moveo.AI login.
 | `knowledge-base` skill | Builds knowledge bases from websites, FAQs and files, and fixes wrong answers |
 | `test-agent` skill | Runs quick tests and simulations, and debugs customer conversations |
 
-Every change goes to a draft first. Customers see nothing until you publish. The servers mark every tool that changes data as destructive, and Claude uses that mark to decide when to ask for your approval.
+Every change goes to a draft first. Customers see nothing until you publish. The skills tell Claude to name the account and the resource and to wait for your yes before any publish, rollback or delete. The servers also mark every tool that changes data as destructive. On claude.ai, that mark makes Claude ask before each such call. In Claude Code, your permission settings decide: if you allow the Moveo write tools without a prompt, only the skills stand between a request and the change.
 
 ## Update
 
