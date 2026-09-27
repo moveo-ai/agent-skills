@@ -1,7 +1,7 @@
 {
   "name": "moveo",
   "displayName": "Moveo.AI",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Build, test and operate Moveo.AI agents from Claude Code: agents, workflows, knowledge bases, simulations and environments over the hosted Moveo.AI MCP servers",
   "author": {
     "name": "Moveo.AI",
