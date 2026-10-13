@@ -31,8 +31,9 @@ The `build_agent_from_brief` server prompt runs steps 1 to 8 in one pass. If the
 
 1. Find the agent in the agents snapshot (see `get-started` for its uri). If the name is ambiguous, ask.
 2. Read before you write: `moveo_get_agent_guidelines` for the playbook, `moveo_list_agent_workflows` for the flows.
-3. Make the smallest edit that does the job. `moveo_update_agent_guidelines` deep-merges, so send only the fields you change.
-4. Show the user what changed with `moveo_diff_agent_versions` from the latest published version to `0`.
+3. If the change touches more than one workflow, moves a jump, or changes a handover or a tag, show a plan before the first write. Give the current state, each change as before and after, and the nodes in other workflows that point at what you change (`moveo_get_dialog_references`). Make no change until the user agrees to the plan.
+4. Make the smallest edit that does the job. `moveo_update_agent_guidelines` deep-merges, so send only the fields you change.
+5. Show the user what changed with `moveo_diff_agent_versions` from the latest published version to `0`.
 
 ## Publish
 

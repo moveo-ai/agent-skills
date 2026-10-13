@@ -13,6 +13,8 @@ Ask one question before you build a workflow: must this step happen in a fixed o
 
 Most production workflows have one to three nodes. If a draft has more, look for a question-and-answer chain that requisites can replace.
 
+Build one workflow for each flow. A menu with a sales flow and a support flow is three workflows. The menu jumps to each flow with an `event` action.
+
 ## Compose
 
 1. Name the intent after the customer's goal, for example `start_return`, not after the first words of an utterance.
@@ -20,9 +22,11 @@ Most production workflows have one to three nodes. If a draft has more, look for
 3. Collect facts with requisites on one node. Each requisite has `save_as`, a question, and a `validation_guideline`. The runtime asks, validates and asks again. Do not add nodes for retries.
 4. Branch with conditions. Put deterministic rules first, guideline rules second, and `else` last. The first branch that matches wins.
 5. Call a webhook only after the requisites it needs are filled. Get the `webhook_id` from `moveo_list_agent_webhooks`. If the webhook does not exist yet, create it with `moveo_create_agent_webhook` and test it with `moveo_test_agent_webhook`.
+6. For a menu, put the buttons in a requisite and branch on the option `text`, not the `label`. A text action with buttons followed by a jump does not wait for the click. The guide pattern `menu_that_waits` shows the shape.
 
 ## Change
 
+- `dialog.nodes` replaces every node. Start from the nodes that `moveo_get_agent_workflow` returns and keep every existing `node_id`, `action_id`, `condition_id`, `rule_id`, `requisite_id` and `option_id`. A new `node_id` on an existing node breaks each jump that points at it from another workflow. A part that you add gets a new descriptive `node_id`, such as `start_return`, and needs no other id, because the other ids are optional.
 - `moveo_update_agent_workflow` applies changes in a fixed order: it creates intents, then updates intents, then patches the dialog. Send one call with all the parts.
 - Before you rename or delete an intent, call `moveo_get_dialog_references` to find nodes in other dialogs that point at it.
 - `moveo_get_agent_workflow` returns only `expression_count`. Read the resource link it returns to see the full expressions.
