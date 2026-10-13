@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/moveo-ai/agent-skills/compare/v0.2.0...v0.3.0) (2026-10-13)
+
+
+### Features
+
+* **skills:** plan changes across workflows, keep ids, and build menus that wait ([#9](https://github.com/moveo-ai/agent-skills/issues/9)) ([29a680f](https://github.com/moveo-ai/agent-skills/commit/29a680f37d60b318768df526b2bf3094597085e1))
+
 ## [0.2.0](https://github.com/moveo-ai/agent-skills/compare/v0.1.1...v0.2.0) (2026-09-27)
 
 
